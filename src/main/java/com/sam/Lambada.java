@@ -1,19 +1,16 @@
 package com.sam;
 
-interface Foo {
-    String method(String string);
-}
+import java.util.function.Function;
 
 public class Lambada {
-    public String add(String string, Foo foo) {
-        return foo.method(string);
+    public String add(String string, Function<String, String> foo) {
+        return foo.apply(string);
     }
 
     public static void main(String[] args) {
         Lambada lam = new Lambada();
-        String result = lam.add("Hello", (param) -> { 
-            return param + " lambada"; 
-        });
+        Function<String, String> foo = param -> param + " lambada";
+        String result = lam.add("Hello", foo);
 
         System.out.println(result);
     }
