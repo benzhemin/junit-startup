@@ -1,0 +1,2 @@
+# junit-startup
+junit
